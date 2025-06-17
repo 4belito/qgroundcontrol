@@ -872,12 +872,12 @@ uint8_t LinkManager::allocateMavlinkChannel(void)
 {
     // Find a mavlink channel to use for this link
     for (uint8_t mavlinkChannel = 0; mavlinkChannel < MAVLINK_COMM_NUM_BUFFERS; mavlinkChannel++) {
-        if (!(_mavlinkChannelsUsedBitMask & static_cast<unsigned __int128>(1) << mavlinkChannel)) {
+        if (!(_mavlinkChannelsUsedBitMask & static_cast<uint256_t>(1) << mavlinkChannel)) {
             mavlink_reset_channel_status(mavlinkChannel);
             // Start the channel on Mav 1 protocol
             mavlink_status_t* mavlinkStatus = mavlink_get_channel_status(mavlinkChannel);
             mavlinkStatus->flags |= MAVLINK_STATUS_FLAG_OUT_MAVLINK1;
-            _mavlinkChannelsUsedBitMask |= static_cast<unsigned __int128>(1)  << mavlinkChannel;
+            _mavlinkChannelsUsedBitMask |= static_cast<uint256_t>(1)  << mavlinkChannel;
             qCDebug(LinkManagerLog) << "allocateMavlinkChannel" << mavlinkChannel;
             return mavlinkChannel;
         }
@@ -892,7 +892,7 @@ void LinkManager::freeMavlinkChannel(uint8_t channel)
     if (invalidMavlinkChannel() == channel) {
         return;
     }
-    _mavlinkChannelsUsedBitMask &= ~(static_cast<unsigned __int128>(1) << channel);
+    _mavlinkChannelsUsedBitMask &= ~(static_cast<uint256_t>(1) << channel);
 }
 
 LogReplayLink* LinkManager::startLogReplay(const QString& logFile)

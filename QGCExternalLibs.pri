@@ -264,3 +264,13 @@ contains (DEFINES, DISABLE_ZEROCONF) {
 } else {
     message("Skipping support for Zeroconf (unsupported platform)")
 }
+
+
+#
+# [REQUIRED] uint256_t submodule
+SOURCES += \
+	libs/uint256_t/uint256_t/uint256_t.cpp \
+	libs/uint256_t/uint256_t/uint128_t/uint128_t.cpp
+INCLUDEPATH += \
+        libs/uint256_t/uint256_t \
+        libs/uint256_t/uint256_t/uint128_t

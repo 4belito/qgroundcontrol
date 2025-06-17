@@ -28,3 +28,6 @@
 [submodule "src/FirmwarePlugin/APM/ArduPilot-Parameter-Repository"]
 	path = src/FirmwarePlugin/APM/ArduPilot-Parameter-Repository
 	url = https://github.com/ArduPilot/ArduPilot-Parameter-Repository
+[submodule "libs/uint256_t/uint256_t"]
+	path = libs/uint256_t/uint256_t
+	url = https://github.com/calccrypto/uint256_t.git

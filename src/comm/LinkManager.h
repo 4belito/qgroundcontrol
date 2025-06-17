@@ -15,6 +15,8 @@
 
 #include <limits>
 
+#include "uint256_t.h"
+
 #include "LinkConfiguration.h"
 #include "LinkInterface.h"
 #include "QGCLoggingCategory.h"
@@ -168,7 +170,7 @@ private:
     bool                                _connectionsSuspended;                      ///< true: all new connections should not be allowed
     QString                             _connectionsSuspendedReason;                ///< User visible reason for suspension
     QTimer                              _portListTimer;
-    unsigned __int128                            _mavlinkChannelsUsedBitMask;
+    uint256_t                           _mavlinkChannelsUsedBitMask;
 
     AutoConnectSettings*                _autoConnectSettings;
     MAVLinkProtocol*                    _mavlinkProtocol;
